@@ -1,99 +1,114 @@
 
 
-Speckit Workflow
+# Speckit Workflow
 
+A comparison and integration guide for **Speckit** and **SQUAD** — two complementary AI-assisted development tools.
 
-Speck VS squad 
+---
 
+## References
 
+| Tool | Repository |
+|------|-----------|
+| spec-kit | https://github.com/github/spec-kit |
+| squad | https://github.com/bradygaster/squad |
 
-http://github.com/github/spec-kit
+---
 
+## Speckit Flow
 
-https://github.github.com/spec-kit/
+```
+Constitution → Specify → Plan → Tasks → Implement
+```
 
-https://github.com/bradygaster/squad
+---
 
+## Default Project Structure
 
+```
+project-root/
+├── Constitution.md
+└── .specify/
+    ├── scripts/
+    └── prompts/
+```
 
+---
 
+## Installation
 
-Constitution —> Specify —> Plan —> Tasks —> Implement 
-
-
-Project-root/
-     Constitution.md
-     .speecify
-        | Scripts
-        | prompts
-
-
-
+```bash
 uv tool install specify-cli --from git+https://github.com/github/spec-kit.git@vX.Y.Z
-
-Specify init —integration copilot —scripts ps
-
-
-
-# speckit.constitution 
-1. /speckit.constitution create Python FastAPI application 
-
-# speckit.specify
-1. /speckit.specify Build a TODO API that allow users to create,read,update and delete todo iteams ,Each todo has a title,description, due date,and compeltion status Todo can be filtered by status and sorted by due date
-
-# speckit.plan 
-1. /speckit.plan use FastAPI minimal APIS with entity framework core SQLAlchmy and SQLite for storage Structure as a single project with verticle slice arthitecture use pyunit for testing
-
-# speckit.tasks
-1. /speckit.tasks
-
-```
-Compacted conversation
-
-The before_tasks hook is optional. Now load all design documents in parallel:
-
-Read spec.md
-
-Read plan.md
-
-Read data-model.md
-
-Read todo-api.md, lines 1 to 200
-
-Read todo-api.md, lines 100 to 200
-
-Read tasks-template.md, lines 1 to 100
-
-Read tasks-template.md, lines 100 to 200
-
-Read tasks-template.md, lines 200 to 253
-
-Loading
-
 ```
 
+## Project Setup
 
-# SQUAD 
+```bash
+specify init --integration copilot --scripts ps
+```
 
-https://github.com/bradygaster/squad
+---
 
-A human directed team of AI agents . SQUAD puts you and your development in charge of a multi-agent team 
+## Speckit Commands
 
-.squad
-|
-|
-| team.md
-  decisions.md
-  agents/
-    |
-    |. -->rusty/. (Lead agent)
-        Basher (Arch)
-        linus ---> developer
-        livingston/.  Reviewer 
+### speckit.constitution
+```
+/speckit.constitution create Python FastAPI application
+```
 
+### speckit.specify
+```
+/speckit.specify Build a TODO API that allows users to create, read, update, and
+delete todo items. Each todo has a title, description, due date, and completion
+status. Todos can be filtered by status and sorted by due date.
+```
 
+### speckit.plan
+```
+/speckit.plan use FastAPI with SQLAlchemy and SQLite for storage. Structure as a
+single project with vertical slice architecture. Use pytest for testing.
+```
 
+### speckit.tasks
+```
+/speckit.tasks
+```
+
+**Task loading — design documents loaded in parallel:**
+
+| Document | Lines |
+|----------|-------|
+| `spec.md` | full |
+| `plan.md` | full |
+| `data-model.md` | full |
+| `todo-api.md` | 1–200 |
+| `tasks-template.md` | 1–253 |
+
+> Note: The `before_tasks` hook is optional.
+
+---
+
+## SQUAD
+
+**Repository:** https://github.com/bradygaster/squad
+
+A human-directed team of AI agents. SQUAD puts you and your development team in charge of a multi-agent workflow.
+
+### Project Structure
+
+```
+.squad/
+├── team.md
+├── decisions.md
+└── agents/
+    ├── rusty/        # Lead agent
+    ├── basher/       # Architect
+    ├── linus/        # Developer
+    └── livingston/   # Reviewer
+```
+
+### Installation
+
+```bash
 npm install -g @bradygaster/squad-cli@latest
-
-       
-     
+```
